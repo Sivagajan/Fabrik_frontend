@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 import Dashboard from './Dashboard'
+import Navigation from "../component/nav/Navigation"
 
-const Home = () => {
+    /* const Home = () => {
 
-    const [workers,setWorker] = useState([])
+const [workers,setWorker] = useState([])
 
     useEffect(() => {
 
         let result = null
 
         const fetchdata = async () => {
-            result = await fetch('http://localhost:9898/admin/home', {
+            result = await fetch('http://localhost:9898/admin/allworkers', {
                 headers: {
                     Authentication: 'Bearer ' +localStorage.getItem('token')
                 }})
@@ -24,8 +25,8 @@ const Home = () => {
 
         
 
-    },[])
-    console.log(workers)
+    },[]) 
+
 
 
     return (
@@ -41,6 +42,24 @@ const Home = () => {
 
 
         </>
+    )
+}
+
+export default Home */
+
+const Home = (props) => {
+    const [user, setUser] = useState()
+    const [component, setComponent] = useState(<Dashboard />)
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        setUser(token)
+    }, [])
+    return (
+        <>
+            <Navigation setcomponent={setComponent} />
+            {component}
+        </>
+
     )
 }
 

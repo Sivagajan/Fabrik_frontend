@@ -1,10 +1,9 @@
-const Dashboard = ({worker}) => {
+const Dashboard = () => {
 
     return (
 
         <>
-            {console.log(worker)}
-            <p>{worker.firstname}</p>
+            <h1 className="Dashboard">Dashboard</h1>
         </>
     )
 }
